@@ -35,15 +35,6 @@ public class RouletteV2LemdjoMTest {
   
   @Test
   @TestAuthor(githubId = "LemdjoM")
-  public void theClientShouldBeAbleToConnect() throws IOException {
-    IRouletteV2Client client = (IRouletteV2Client) new RouletteV2ClientImpl();
-    assertFalse(client.isConnected());
-    client.connect("localhost",roulettePair.getServer().getPort());
-    assertTrue(client.isConnected());
-  }
-  
-  @Test
-  @TestAuthor(githubId = "LemdjoM")
   public void ClearStudentsStoreMeansThereIsNoMoreStudents() throws IOException{
      IRouletteV2Client client = (IRouletteV2Client) new RouletteV2ClientImpl();
      client.connect("localhost", roulettePair.getServer().getPort());
@@ -56,11 +47,9 @@ public class RouletteV2LemdjoMTest {
   @Test
   @TestAuthor(githubId = "LemdjoM")
   public void theNumberOfStudentShouldBeCorrectAtTime() throws IOException{
-     assertEquals(roulettePair.getClient().getNumberOfStudents(), 0);
-      
+     assertEquals(roulettePair.getClient().getNumberOfStudents(), 0); 
      roulettePair.getClient().loadStudent("francine Kengne");
-     assertEquals(roulettePair.getClient().getNumberOfStudents(), 1);
-       
+     assertEquals(roulettePair.getClient().getNumberOfStudents(), 1);   
      roulettePair.getClient().loadStudent("Lemdjo Marie");
      assertEquals(roulettePair.getClient().getNumberOfStudents(), 2);
   } 
